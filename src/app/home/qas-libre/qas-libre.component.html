@@ -1,0 +1,53 @@
+<mat-form-field class="example-form-field">
+  <mat-label>Ingresar la IP del ESP32</mat-label>
+  <input matInput type="text"
+         [(ngModel)]="api"
+  >
+</mat-form-field>
+
+<google-map #map
+            [center]="center"
+            [zoom]="zoom"
+            height="800px"
+            width="100%"
+>
+</google-map>
+
+<mat-form-field class="example-form-field">
+  <mat-label>Latitud</mat-label>
+  <input matInput type="number"
+         [disabled] = "mover"
+         [(ngModel)]="lat"
+         step="0.000001"
+  >
+</mat-form-field>
+<mat-form-field class="example-form-field">
+  <mat-label>Longitud</mat-label>
+  <input matInput type="number"
+         [disabled] = "mover"
+         [(ngModel)]="lng"
+         step="0.000001"
+  >
+</mat-form-field>
+
+<div class="custom-toggle-container">
+  <p class="toggle-description">Activar movimiento aquí</p>
+  <mat-slide-toggle class="custom-toggle" [(ngModel)]="mover" color="primary" [checked]="false">
+    <div class="toggle-content">
+      <span *ngIf="!mover">Desactivado</span>
+      <span *ngIf="mover">Activado</span>
+    </div>
+  </mat-slide-toggle>
+</div>
+
+<!--<div>-->
+<!--  <label>-->
+<!--    Latitud:-->
+<!--    <input type="number" #latInput>-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    Longitud:-->
+<!--    <input type="number" #lngInput>-->
+<!--  </label>-->
+<!--  <button (click)="setMarkerPosition(latInput.value, lngInput.value)">Mover Marcador</button>-->
+<!--</div>-->
